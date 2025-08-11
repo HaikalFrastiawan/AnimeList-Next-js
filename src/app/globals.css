@@ -1,2 +1,11 @@
 @import "tailwindcss";
 
+img{
+   
+    transition: .3s ease all;
+
+}
+
+img:hover{
+    scale: 120%;
+}

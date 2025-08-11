@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        remotePatterns: [
-            {
-                hostname: "cdn.myanime.List.net"
-            }
-        ]
-    }
-    
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.myanimelist.net",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
