@@ -12,10 +12,7 @@ const Page = () => {
   const [topAnime,setTopAnime ] = useState([])
   
   const fetchData = async () =>{
-  //   const response = await fetch(
-  //    `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime?page=${page}`
-  //   )
-  // const data = await response.json()
+
 
   const populerAnime = await getAnimeResponse("top/anime", `page= ${page}`)
   setTopAnime(populerAnime  )
