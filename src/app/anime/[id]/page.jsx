@@ -1,9 +1,10 @@
-import { getAnimeResponse } from "@/app/libs/api-libs"
+import { getAnimeResponse } from "@/libs/api-libs"
 import VideoPlayer from "@/components/utilities/videoPlayer"
 import Image from "next/image"
 
-const page = async({params: { id }}) =>{
-    const anime = await getAnimeResponse(`anime/${id}`)
+const page = async ({ params }) => {
+  const { id } = await params // harus di-await sekarang
+  const anime = await getAnimeResponse(`anime/${id}`)
     
     return (
         <>
@@ -11,7 +12,7 @@ const page = async({params: { id }}) =>{
              <h3 className="text-white text-2xl"  >{anime.data.title} - {anime.data.year}</h3>
         </div> 
 
-
+s
         <div className="pt-4 px-4 flex gap-2 text-white overflow-x-auto" >
             <div className="w-36 flex flex-col justify-center items-center rounded border border-white p-2 ">
                 <h3>PERINGKAT</h3>
