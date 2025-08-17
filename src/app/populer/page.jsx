@@ -12,11 +12,8 @@ const Page = () => {
   const [topAnime,setTopAnime ] = useState([])
   
   const fetchData = async () =>{
-
-
-  const populerAnime = await getAnimeResponse("top/anime", `page= ${page}`)
-  setTopAnime(populerAnime  )
-
+    const populerAnime = await getAnimeResponse("top/anime", `page=${page}`)
+    setTopAnime(populerAnime)
   }
 
   useEffect( ()=>{
