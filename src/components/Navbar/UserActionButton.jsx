@@ -10,9 +10,9 @@ const UserActionButton =  async() =>{
     return (
         <div className="flex justify-between gap-2">
             {
-                user ? <Link href="user/dashbord" className="py-1" >Dashboard</Link> : null
+                user ? <Link href="user/dashboard" className="py-1" >Dashboard</Link> : null
             }
-            <Link href={actionURL} className="bg-white text-black px-12 rounded">{actionLabel}</Link>
+            <Link href={actionURL} className="bg-gray-900 text-amber-400 px-12 rounded">{actionLabel}</Link>
         </div>
     )
 }
