@@ -1,18 +1,19 @@
 import { getAnimeResponse } from "@/libs/api-libs"
 import VideoPlayer from "@/components/utilities/videoPlayer"
 import Image from "next/image"
+import CollectionButton from "@/components/AnimeList/CollectionButton"
+import { authUserSession } from "@/libs/auth-libs"
 
-const page = async ({ params }) => {
-  const { id } = await params // harus di-await sekarang
+const Page = async ({ params:{id} }) => {
   const anime = await getAnimeResponse(`anime/${id}`)
+  const user = authUserSession()
     
     return (
         <>
         <div className="pt-4 px-4">
-             <h3 className="text-white text-2xl"  >{anime.data.title} - {anime.data.year}</h3>
+             <h3 className="text-white text-xl">{anime.data.title} - {anime.data.year}</h3>
+            <CollectionButton anime_mal_id={id} user_email={user?.email} />
         </div> 
-
-s
         <div className="pt-4 px-4 flex gap-2 text-white overflow-x-auto" >
             <div className="w-36 flex flex-col justify-center items-center rounded border border-white p-2 ">
                 <h3>PERINGKAT</h3>
@@ -36,8 +37,8 @@ s
             <Image
              src= {anime.data.images.webp.image_url} 
              alt= {anime.data.images.jpg.image_url} 
-             width={250}
-             height={250}
+             width={100}
+             height={100}
              className="w-full rounded object-cover"
             />
 
@@ -52,4 +53,4 @@ s
     )
 }
 
-export default page
+export default Page
